@@ -1,0 +1,41 @@
+<html>
+  <head>
+  	<link rel="stylesheet" type="text/css">
+    	<style type="text/css">
+      table{
+        border-collapse: collapse;
+        width: 400px;
+        height: 100px;
+      }
+      table, th, td {
+        border:1px solid black;
+        text-align: center;
+      }
+
+      </style>
+  </head>
+  <body ng-app='myApp'>
+    <div ng-controller="PlayersController">
+        <form>
+          Name: <input type='text' ng-model='newPlayer.name'>
+          <input type='submit' value='Add Player' ng-click='addPlayers()'>
+        </form>
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat = "player in players track by $index | orderBy: 'name' ">
+              <td>{{player.name}}</td>
+              <td><button ng-click= 'removePlayer($index)'>Remove Player</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div> 
+    
+    </div> 
+  </body>
+</html>
